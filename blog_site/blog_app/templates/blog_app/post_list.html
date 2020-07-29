@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title_block %}
+    <title>Home</title>
+{% endblock %}
+{% block body_block %}
+    {% for post in post_list %}
+        <h3> Title : <a href="{% url 'post_detail' pk=post.pk %}"> {{ post.title }} </a> </h3>   
+       
+        {% if post.published_date %}
+            <p> Published Date : {{post.published_date|date:"d-M-Y"}} </p>
+            <p><a href="{% url 'post_detail' pk=post.pk %}"> Comment Count : {{ post.approve_comments.count }}</a></p>
+        {% else %}
+             <p> Created date :  {{post.created_date|date:"d-M-Y"}} </p>
+        {% endif %}
+        <hr>
+    {% endfor %}
+{% endblock %}

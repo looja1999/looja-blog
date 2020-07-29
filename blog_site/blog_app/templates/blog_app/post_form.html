@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title_block %}
+    <title>Post form</title>
+{% endblock %}
+
+{% block body_block %}
+    <h1>POST FORM</h1>
+    <div class="form-group"></div>
+    <form action="" method="POST"  >
+        {{form.as_p}}
+        {% csrf_token %}
+        <input type="submit" class="btn btn-primary" name="" id="">
+    </form>
+{% endblock %}
